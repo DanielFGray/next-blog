@@ -40,7 +40,7 @@ const Nav = ({ links, children }: { children: ReactNode, links: Array<{ path: st
           </li>
         ))}
       </ul>
-      <div className="fixed bottom-0 right-0 z-10 flex items-center justify-around w-24 h-24 p-2 mb-3 mr-4 bg-black rounded-full bg-opacity-50">
+      <div className="fixed bottom-0 right-0 z-10 flex items-center justify-around w-20 h-20 p-2 mb-3 mr-4 bg-black rounded-full bg-opacity-50">
         <div>
           {children}
         </div>
