@@ -50,5 +50,5 @@ export const getStaticProps: GetStaticProps = async ({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getStaticBlogPaths()
-  return { paths, fallback: 'blocking' }
+  return { paths, fallback: false }
 }

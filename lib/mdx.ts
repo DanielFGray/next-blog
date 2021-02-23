@@ -10,7 +10,7 @@ import type { MdxRemote } from 'next-mdx-remote/types'
 
 // const isServer = typeof window === 'undefined'
 
-const POSTS_PATH = path.join(process.cwd(), 'blog')
+const POSTS_PATH = path.join(process.cwd(), 'blog', '/')
 
 export type SourceType = MdxRemote.Source
 export type SourceWithMatter = {
@@ -75,10 +75,10 @@ export async function readMdxFile(slug: string): Promise<string> {
 }
 
 export async function getAllFilesFrontMatter(): Promise<FrontMatter[]> {
-  const files = await globby(`${POSTS_PATH}/**/*.md`, { gitignore: true })
+  const files = await globby(`${POSTS_PATH}**/*.md`, { gitignore: true })
   const allFrontMatter = await Promise.all(
     files.map(async file => {
-      const name = file.replace(`${POSTS_PATH}/`, '').replace(/.mdx?$/, '')
+      const name = file.replace(POSTS_PATH, '').replace(/.mdx?$/, '')
       return matter(await readMdxFile(name), name).data
     }, []),
   )
@@ -87,7 +87,7 @@ export async function getAllFilesFrontMatter(): Promise<FrontMatter[]> {
 }
 
 export async function getStaticBlogPaths(): Promise<{params: {slug: string}}[]> {
-  const glob = await globby(`${POSTS_PATH}/**/*.md`, { gitignore: true })
+  const glob = await globby(`${POSTS_PATH}**/*.md`, { gitignore: true })
   return glob
     .filter(path => /\.mdx?$/.test(path))
     .map(path => ({ params: { slug: path.replace(/\.mdx?$/, '').replace(POSTS_PATH, '') } }))
