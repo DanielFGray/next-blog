@@ -22,7 +22,8 @@ const BlogPost: NextPage<SourceWithMatter> = ({source, data}) => {
       <div
         className={`
           max-w-4xl
-          p-8
+          lg:p-8
+          p-3
           md:rounded-lg
           bg-gray-50
           mx-auto
