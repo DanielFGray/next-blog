@@ -90,5 +90,5 @@ export async function getStaticBlogPaths(): Promise<{params: {slug: string}}[]> 
   const glob = await globby(`${POSTS_PATH}/**/*.md`, { gitignore: true })
   return glob
     .filter(path => /\.mdx?$/.test(path))
-    .map(path => ({ params: { slug: path.replace(/\.mdx?$/, '') } }))
+    .map(path => ({ params: { slug: path.replace(/\.mdx?$/, '').replace(POSTS_PATH, '') } }))
 }
