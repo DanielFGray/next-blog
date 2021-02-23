@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #__next {
+    /* max-width: 100vw; */
+    /* overflow-x: hidden; */
+    @apply min-h-screen;
+  }
+
+  body { @apply subpixel-antialiased; }
+
+  * { @apply transition-colors duration-300; }
+  .token {
+    &.prefix { @apply select-none bg-opacity-0; }
+    &.deleted { @apply bg-red-500 bg-opacity-50 py-0.5; }
+    &.inserted { @apply bg-emerald-500 bg-opacity-50 py-0.5; }
+    &.function,
+    &.builtin { @apply text-lightBlue-500 dark:text-lightBlue-300; }
+    &.string { @apply text-yellow-600 dark:text-yellow-400; }
+    &.keyword { @apply font-bold; }
+    &.comment { @apply text-gray-500 dark:text-gray-600 italic; }
+    &.doc-comment { @apply not-italic; }
+    &.punctuation, &.operator { @apply text-gray-400 dark:text-gray-600; }
+  }
+}
