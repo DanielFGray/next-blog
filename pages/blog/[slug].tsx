@@ -5,8 +5,9 @@ import { getStaticBlogPaths, mdxToString, readMdxFile, SourceWithMatter } from '
 import Head from 'next/head'
 
 const components = {}
-const BlogPost: NextPage<SourceWithMatter> = ({ source, data }) => {
-  const content = hydrate(source, { components })
+const BlogPost: NextPage<SourceWithMatter> = ({source, data}) => {
+  const content = hydrate(source, {components})
+  const { excerpt: _e, ...meta } = data
   return (
     <Layout>
       <Head>
@@ -15,8 +16,8 @@ const BlogPost: NextPage<SourceWithMatter> = ({ source, data }) => {
         <meta name="description" content={data.excerpt} />
         <meta name="keywords" content={data.tags.join(', ')} />
       </Head>
-      <pre className="px-8 mb-8 text-gray-200 whitespace-pre-wrap">
-        {JSON.stringify(data, null, 2)}
+      <pre className="mb-8 text-gray-200 whitespace-pre-wrap lg:px-8">
+        {JSON.stringify(meta, null, 2)}
       </pre>
       <div
         className={`
