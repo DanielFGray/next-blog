@@ -44,6 +44,9 @@ export default function DarkToggle({
           ${darkMode ? 'translate-x-5' : 'translate-x-0'}
           ring-0
           transform
+          transition-transform
+          ease-in-out
+          duration-300
         `}
       />
     </button>
