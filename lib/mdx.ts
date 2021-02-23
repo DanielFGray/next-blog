@@ -22,7 +22,7 @@ export function matter(source: string, path: string): { content: string; data: F
   const { content, data, excerpt } = grayMatter(source, {
     excerpt_separator: '\n\n',
   })
-  const date = (data.date as Date).toJSON() ?? null
+  const date = (data.date as Date)?.toJSON?.() ?? null
   const updated = (data.updated as Date | undefined)?.toJSON?.() ?? null
   const { words, text: time } = readingTime(content)
   return {
