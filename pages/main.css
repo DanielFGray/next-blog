@@ -13,7 +13,7 @@
 
   body { @apply subpixel-antialiased; }
 
-  * { @apply transition-colors duration-300; }
+  *[class*='dark:'], .prose * { @apply transition-colors duration-300; }
   .token {
     &.prefix { @apply select-none bg-opacity-0; }
     &.deleted { @apply bg-red-500 bg-opacity-50 py-0.5; }
