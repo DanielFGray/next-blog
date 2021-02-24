@@ -1,10 +1,12 @@
-body { @apply subpixel-antialiased; }
+*[class*='dark:'],
+.prose * {
+  @apply transition-colors duration-300;
+}
 
-*[class*='dark:'], .prose * { @apply transition-colors duration-300; }
 .token {
   &.prefix { @apply select-none bg-opacity-0; }
   &.deleted { @apply bg-red-500 bg-opacity-50 py-0.5; }
-  &.inserted { @apply bg-emerald-500 bg-opacity-50 py-0.5; }
+  &.inserted { @apply bg-green-500 bg-opacity-50 py-0.5; }
   &.function,
   &.builtin { @apply text-lightBlue-500 dark:text-lightBlue-300; }
   &.string { @apply text-yellow-600 dark:text-yellow-400; }
