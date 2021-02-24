@@ -26,10 +26,10 @@ const Layout: NextPage<LayoutProps> = ({ title, children }) => {
       className={`
         ${darkMode ? 'dark' : ''}
         min-h-screen
-        bg-gray-100
+        bg-coolGray-800
         bg-gradient-to-br
         from-coolGray-800
-        to-emerald-600
+        to-green-600
       `}
     >
       <Head>

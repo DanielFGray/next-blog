@@ -13,9 +13,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        emerald: colors.emerald,
         cyan: colors.cyan,
         teal: colors.teal,
+        rose: colors.rose,
         lightBlue: colors.lightBlue,
         coolGray: colors.coolGray,
         gray: colors.trueGray,
@@ -26,7 +26,7 @@ module.exports = {
             css: {
               pre: {
                 color: theme('colors.gray.900'),
-                backgroundColor: theme('colors.gray.200'),
+                backgroundColor: theme('colors.gray.100'),
               },
             },
           },
