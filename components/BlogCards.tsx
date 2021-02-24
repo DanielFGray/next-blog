@@ -6,7 +6,9 @@ import Tag from 'components/Tag'
 export function BlogList({ posts }: { posts: FrontMatter[] }): JSX.Element {
   return (
     <div>
-      {posts.map(post => <BlogCard key={post.slug} post={post} />)}
+      {posts.map(post => (
+        <BlogCard key={post.slug} post={post} />
+      ))}
     </div>
   )
 }

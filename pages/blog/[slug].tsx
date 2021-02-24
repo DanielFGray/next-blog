@@ -70,7 +70,7 @@ export default BlogPost
 export const getStaticProps: GetStaticProps = async ({
   params,
 }): Promise<{ props: SourceWithMatter }> => {
-  if (!params?.slug) throw new Error('missing slug param')
+  if (! params?.slug) throw new Error('missing slug param')
   if (params.slug instanceof Array) throw new Error('too many slugs')
   const file = await readMdxFile(params.slug)
   const { data, source } = await mdxToString({ source: file, slug: params.slug, components })
