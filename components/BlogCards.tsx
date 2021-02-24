@@ -54,7 +54,16 @@ export function BlogCard({ post }: { post: FrontMatter }): JSX.Element {
             {post.tags.map(tag => (
               <Link key={tag} href="#">
                 <a>
-                  <Tag>{tag}</Tag>
+                  <Tag
+                    className={`
+                      dark:bg-gray-700
+                      dark:border-gray-700
+                      dark:hover:border-gray-500
+                      dark:text-gray-200
+                    `}
+                  >
+                    {tag}
+                  </Tag>
                 </a>
               </Link>
             ))}
