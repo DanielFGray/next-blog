@@ -9,7 +9,7 @@
     "watch:tsc": "tsc -w --preserveWatchOutput --noEmit",
     "start": "run-p -c watch:*",
     "build": "next build",
-    "lint:js": "eslint --ext=.js,.ts,.jsx,.tsx .",
+    "lint:js": "eslint --ext=.js,.ts,.jsx,.tsx pages components lib",
     "lint:types": "tsc",
     "lint": "run-p -c lint:*",
     "test": "run-p -c lint",
