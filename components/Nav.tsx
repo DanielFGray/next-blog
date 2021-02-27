@@ -30,7 +30,7 @@ const ActiveLink = ({ children, as, href, router, activeClassName, ...rest }: Ac
 const Nav = ({ links, children }: { children: ReactNode, links: Array<{ path: string; label: string }> }): JSX.Element => {
   const router = useRouter()
   return (
-    <nav className="p-6 text-4xl font-bold text-white bg-gray-50 bg-opacity-10">
+    <nav className="p-4 text-lg font-medium text-white bg-gray-50 bg-opacity-10">
       <ul className="flex flex-row justify-around">
         {links.map(({ path, label }) => (
           <li key={`${label}${path}`}>
