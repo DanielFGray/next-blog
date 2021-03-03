@@ -19,7 +19,7 @@ const BlogPost: NextPage<SourceWithMatter> = ({ source, data }) => {
         <meta name="description" content={data.excerpt} />
         <meta name="keywords" content={data.tags.join(', ')} />
       </Head>
-      <div className="max-w-4xl px-8 mx-auto my-8">
+      <div className="max-w-4xl px-3 mx-auto my-8 md:px-8">
         <p className="text-sm font-medium text-coolGray-400">
           <Link href="#">
             <a className="hover:underline">{data.category}</a>
