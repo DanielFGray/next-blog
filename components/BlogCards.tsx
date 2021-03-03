@@ -54,7 +54,7 @@ export function BlogCard({ post }: { post: FrontMatter }): JSX.Element {
         <div className="flex flex-col items-start mt-6">
           <div className="flex flex-wrap -ml-1 gap-x-1">
             {post.tags.map(tag => (
-              <Link key={tag} href="#">
+              <Link key={tag} href={`/blog/tags/${tag}`}>
                 <a>
                   <Tag
                     className={`
