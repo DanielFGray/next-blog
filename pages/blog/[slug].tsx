@@ -29,7 +29,7 @@ const BlogPost: NextPage<SourceWithMatter> = ({ source, data }) => {
         <div className="flex flex-col items-start">
           <div className="flex flex-wrap gap-x-1">
             {data.tags.map(tag => (
-              <Link key={tag} href="#">
+              <Link key={tag} href={`/blog/tags/${tag}`}>
                 <a>
                   <Tag>{tag}</Tag>
                 </a>
