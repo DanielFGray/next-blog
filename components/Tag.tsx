@@ -13,16 +13,16 @@ export default function Tag({
          bg-gray-200
          border
          border-gray-200
-         font-medium
          hover:border-gray-400
+         font-medium
+         text-gray-700
+         text-xs
          items-center
          my-1
          pb-0.5
          pt-0
          px-1
          rounded-lg
-         text-gray-700
-         text-xs
          ${className}
       `}
     >
