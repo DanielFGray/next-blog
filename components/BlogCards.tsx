@@ -3,12 +3,12 @@ import ago from 's-ago'
 import Link from 'next/link'
 import Tag from 'components/Tag'
 
-export function BlogList({ posts }: { posts: FrontMatter[] }): JSX.Element {
+export function BlogList({ children }: { children: ReactNode }): JSX.Element {
   return (
-    <div>
-      {posts.map(post => (
-        <BlogCard key={post.slug} post={post} />
-      ))}
+    <div className="mx-auto mt-16 max-w-7xl">
+      <div className="max-w-lg px-3 mx-auto grid gap-3 lg:grid-cols-3 lg:max-w-none">
+        {children}
+      </div>
     </div>
   )
 }
@@ -46,7 +46,9 @@ export function BlogCard({ post }: { post: FrontMatter }): JSX.Element {
           </p>
           <Link href={`/blog/${post.slug}`}>
             <a className="block mt-2">
-              <p className="text-xl font-semibold text-gray-900 dark:text-gray-50">{post.title}</p>
+              <p className="text-xl font-semibold text-gray-900 dark:text-gray-50">
+                {post.title}
+              </p>
               <p className="mt-3 text-base text-gray-500 dark:text-gray-400">{post.excerpt}</p>
             </a>
           </Link>
@@ -72,9 +74,9 @@ export function BlogCard({ post }: { post: FrontMatter }): JSX.Element {
           </div>
           <div className="flex flex-wrap mt-2 text-sm text-gray-500 space-x-1">
             {date && <time dateTime={date.toLocaleDateString()}>{ago(date)}</time>}
-            <span aria-hidden="true">·</span>
+            <span aria-hidden="true"> · </span>
             <span>{post.words} words</span>
-            <span aria-hidden="true">·</span>
+            <span aria-hidden="true"> · </span>
             <span>{post.time}</span>
           </div>
         </div>

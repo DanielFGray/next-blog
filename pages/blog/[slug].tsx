@@ -1,4 +1,5 @@
 import type { GetStaticProps, GetStaticPaths, NextPage } from 'next'
+import type { MdxRemote } from 'next-mdx-remote/types'
 import hydrate from 'next-mdx-remote/hydrate'
 import { getStaticBlogPaths, mdxToString, readMdxFile, SourceWithMatter } from 'lib/mdx'
 import Head from 'next/head'
@@ -19,7 +20,7 @@ const BlogPost: NextPage<SourceWithMatter> = ({ source, data }) => {
         <meta name="description" content={data.excerpt} />
         <meta name="keywords" content={data.tags.join(', ')} />
       </Head>
-      <div className="max-w-4xl px-3 mx-auto my-8 md:px-8">
+      <div className="max-w-4xl p-3 mx-auto md:p-8">
         <p className="text-sm font-medium text-coolGray-400">
           <Link href="#">
             <a className="hover:underline">{data.category}</a>
@@ -52,6 +53,7 @@ const BlogPost: NextPage<SourceWithMatter> = ({ source, data }) => {
           md:p-8
           p-3
           md:rounded-lg
+          md:shadow-lg
           bg-gray-50
           mx-auto
           prose
@@ -70,7 +72,7 @@ export default BlogPost
 export const getStaticProps: GetStaticProps = async ({
   params,
 }): Promise<{ props: SourceWithMatter }> => {
-  if (!params?.slug) throw new Error('missing slug param')
+  if (! params?.slug) throw new Error('missing slug param')
   if (params.slug instanceof Array) throw new Error('too many slugs')
   const file = await readMdxFile(params.slug)
   const { data, source } = await mdxToString({ source: file, slug: params.slug, components })

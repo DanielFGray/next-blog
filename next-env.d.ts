@@ -5,15 +5,17 @@
 /// <reference types="next/types/global" />
 
 type ReactNode = React.ReactNode
+type ReactChildren = {children: ReactNode}
+
 
 interface FrontMatter {
   title: string
-  excerpt?: string | undefined
+  excerpt?: string
   category: string
   image?: string
   tags: string[]
   date: string
-  updated?: string | null | undefined
+  updated?: string | null
   words: number
   time: string
   slug: string

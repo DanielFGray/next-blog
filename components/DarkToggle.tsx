@@ -1,54 +1,66 @@
 import * as React from 'react'
 
-export default function DarkToggle({
-  changeDarkMode,
-  darkMode,
-}: {
+export default function DarkToggle({ changeDarkMode, darkMode }: {
   changeDarkMode: React.Dispatch<React.SetStateAction<boolean>>
   darkMode: boolean
 }): JSX.Element {
   return (
-    <button
-      type="button"
-      onClick={() => changeDarkMode(s => ! s)}
-      aria-pressed={darkMode ? 'true' : 'false'}
+    <div
       className={`
-        ${darkMode ? 'bg-coolGray-600' : 'bg-gray-200'}
-        -top-1
-        relative
-        inline-flex
-        flex-shrink-0
-        h-6
-        border-2
-        border-transparent
+        fixed
+        bottom-0
+        right-0
+        flex
+        items-center
+        justify-around
         rounded-full
-        cursor-pointer
-        w-11
-        focus:outline-none
-        focus:ring-1
-        focus:ring-offset-1
-        focus:ring-white
+        w-20
+        h-20
+        m-3
+        bg-black
+        bg-opacity-50
       `}
     >
-      <span className="sr-only">change visual theme</span>
-      <span
-        aria-hidden="true"
+      <button
+        type="button"
+        onClick={() => changeDarkMode(s => !s)}
+        aria-pressed={darkMode ? 'true' : 'false'}
         className={`
-          inline-block
-          w-5
-          h-5
-          bg-white
+          border-2
+          border-transparent
+          ${darkMode ? 'bg-coolGray-600' : 'bg-gray-200'}
+          flex-shrink-0
+          focus:outline-none
+          focus:ring-1
+          focus:ring-offset-1
+          focus:ring-white
+          h-6
+          inline-flex
+          relative
           rounded-full
-          shadow
-          pointer-events-none
-          ${darkMode ? 'translate-x-5' : 'translate-x-0'}
-          ring-0
-          transform
-          transition-transform
-          ease-in-out
-          duration-300
+          w-11
+      `}
+      >
+        <span className="sr-only">change visual theme</span>
+        <span
+          aria-hidden="true"
+          className={`
+            bg-white
+            duration-300
+            ease-in-out
+            h-5
+            inline-block
+            pointer-events-none
+            ring-0
+            rounded-full
+            shadow
+            transform
+            transition-transform
+            ${darkMode ? 'translate-x-5' : 'translate-x-0'}
+            w-5
         `}
-      />
-    </button>
+        />
+      </button>
+    </div>
   )
 }

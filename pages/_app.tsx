@@ -1,9 +1,8 @@
-import { AppProps } from 'next/app'
+import type { AppProps } from 'next/app'
 import React from 'react'
-// import { GlobalStyles } from 'twin.macro'
-import "./main.css"
+import "styles/main.css"
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <Component {...pageProps} />
   )

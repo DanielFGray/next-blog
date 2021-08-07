@@ -16,8 +16,8 @@ const ActiveLink = ({ children, as, href, router, activeClassName, ...rest }: Ac
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const className =
     (router.asPath === href || router.asPath === as
-      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-      ? `${childClassName} ${activeClassName}`.trim()
+      ? // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+        `${childClassName} ${activeClassName}`.trim()
       : childClassName) || null
   return (
     <Link {...rest} as={as} href={href}>
@@ -27,26 +27,27 @@ const ActiveLink = ({ children, as, href, router, activeClassName, ...rest }: Ac
   )
 }
 
-const Nav = ({ links, children }: { children: ReactNode, links: Array<{ path: string; label: string }> }): JSX.Element => {
+export const Nav = ({
+  links,
+  children,
+}: {
+  children?: ReactNode
+  links: Array<{ path: string; label: string }>
+}): JSX.Element => {
   const router = useRouter()
   return (
-    <nav className="p-4 text-lg font-medium text-white bg-gray-50 bg-opacity-10">
-      <ul className="flex flex-row justify-around">
-        {links.map(({ path, label }) => (
-          <li key={`${label}${path}`}>
-            <ActiveLink href={path} activeClassName="font-extrabold" router={router}>
-              <a>{label}</a>
-            </ActiveLink>
-          </li>
-        ))}
-      </ul>
-      <div className="fixed bottom-0 right-0 z-10 flex items-center justify-around w-20 h-20 p-2 mb-3 mr-4 bg-black rounded-full bg-opacity-50">
-        <div>
-          {children}
-        </div>
-      </div>
-    </nav>
+    <header>
+      <nav className="p-4 text-lg font-medium text-white bg-gray-50 bg-opacity-10">
+        <ul className="flex flex-row justify-around">
+          {links.map(({ path, label }) => (
+            <li key={`${label}${path}`}>
+              <ActiveLink href={path} activeClassName="font-extrabold" router={router}>
+                <a>{label}</a>
+              </ActiveLink>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
   )
 }
-
-export default Nav

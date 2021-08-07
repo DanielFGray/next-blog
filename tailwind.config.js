@@ -3,20 +3,16 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   darkMode: 'class',
-  purge: {
-    content: [
-      './pages/**/*.tsx',
-      './components/**/*.tsx',
-      './pages/**/*.css',
-    ],
-  },
+  mode: 'jit',
+  purge: [
+    './pages/**/*.tsx',
+    './components/**/*.tsx',
+    './pages/**/*.css',
+  ],
   theme: {
     extend: {
       colors: {
-        cyan: colors.cyan,
-        teal: colors.teal,
-        rose: colors.rose,
-        lightBlue: colors.lightBlue,
+        ...colors,
         coolGray: colors.coolGray,
         gray: colors.trueGray,
       },
@@ -24,6 +20,7 @@ module.exports = {
         return {
           DEFAULT: {
             css: {
+              'a code': { textDecoration: 'underline' },
               pre: {
                 color: theme('colors.gray.900'),
                 backgroundColor: theme('colors.gray.100'),
@@ -47,7 +44,7 @@ module.exports = {
               h3: { color: theme('colors.gray.100') },
               h4: { color: theme('colors.gray.100') },
               code: { color: theme('colors.gray.300') },
-              'a code': { color: theme('colors.gray.300'), textDecoration: 'underline' },
+              'a code': { color: theme('colors.gray.300') },
               hr: { borderColor: theme('colors.gray.500') },
               pre: {
                 color: theme('colors.gray.200'),
@@ -64,11 +61,10 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {
-      borderWidth: ['hover', 'focus'],
-      typography: ['dark'],
-    },
-  },
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+  plugins: [
+    require('@danielfgray/tw-heropatterns'),
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+  ],
 }

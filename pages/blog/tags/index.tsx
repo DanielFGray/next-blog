@@ -7,15 +7,14 @@ interface StaticProps {
   tags: {name: string, count: number}[]
 }
 
-const BlogList: NextPage<StaticProps> = ({ tags }) => {
-  return (
-    <Layout>
-      <pre>
-        {JSON.stringify(tags, null, 2)}
-      </pre>
-    </Layout>
-  )
-}
+const BlogList: NextPage<StaticProps> = ({ tags }) => (
+  <Layout>
+    <pre>
+      {JSON.stringify(tags, null, 2)}
+    </pre>
+  </Layout>
+)
+
 export default BlogList
 
 export const getStaticProps: GetStaticProps<StaticProps> = async () => {
